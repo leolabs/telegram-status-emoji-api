@@ -1,8 +1,8 @@
 # Telegram Emoji Status Updater
 
-A FastAPI-based HTTP server that allows you to update your Telegram emoji status using Telethon.
+A FastAPI-based HTTP server that allows you to update your Telegram account's status emoji using Telethon.
 
-I'm using this to inform my friends of when I'm currently driving, or when I'm working.
+I'm using this to let my friends know when I'm currently driving, or when I'm working.
 
 ## Getting Started
 
