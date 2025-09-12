@@ -34,6 +34,13 @@ services:
       - ./session:/app/session
 ```
 
+This Docker Compose file references a `.env` file with the following contents:
+
+```env
+TG_API_ID=your_api_id
+TG_API_HASH=your_api_hash
+```
+
 ### Running the Script Without Docker
 
 If you prefer to run the application directly with Python, follow these steps:
@@ -53,7 +60,6 @@ If you prefer to run the application directly with Python, follow these steps:
    ```env
    TG_API_ID=your_api_id
    TG_API_HASH=your_api_hash
-   API_KEY=optional_api_key  # Optional: for securing the endpoints
    ```
 
 4. Run the application:
