@@ -1,4 +1,7 @@
 import os
+import asyncio
+import sys
+import signal
 from datetime import datetime
 from fastapi import FastAPI, HTTPException, Depends, Security
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
@@ -47,6 +50,15 @@ async def startup_event():
 
     telegram_client = TelegramClient(int(api_id), api_hash)
     await telegram_client.start()
+
+    # Shutdown after timeout to allow Docker restart
+    timeout = int(os.getenv("SERVER_TIMEOUT", 86400))  # Default 24 hours
+
+    async def shutdown_after_timeout():
+        await asyncio.sleep(timeout)
+        os.kill(os.getpid(), signal.SIGTERM)
+
+    asyncio.create_task(shutdown_after_timeout())
 
 
 @app.on_event("shutdown")

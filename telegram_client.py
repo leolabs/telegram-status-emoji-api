@@ -1,6 +1,6 @@
 from telethon import TelegramClient as TelethonClient
 from telethon.tl.functions.account import UpdateEmojiStatusRequest
-from telethon.tl.types import EmojiStatus, EmojiStatusUntil, User
+from telethon.tl.types import EmojiStatus, User
 from telethon.tl.functions.users import GetFullUserRequest
 from datetime import datetime
 
@@ -46,10 +46,7 @@ class TelegramClient:
 
         try:
             # Create an EmojiStatus object with the provided emoji
-            if until:
-                emoji_status = EmojiStatusUntil(document_id, until)
-            else:
-                emoji_status = EmojiStatus(document_id)
+            emoji_status = EmojiStatus(document_id, until)
 
             # Store current status before updating
             current_status = await self.get_current_emoji_status()
@@ -83,13 +80,8 @@ class TelegramClient:
 
         try:
             # Create emoji status object from previous status
-            if previous_status.get('until'):
-                emoji_status = EmojiStatusUntil(
-                    previous_status['document_id'],
-                    previous_status['until']
-                )
-            else:
-                emoji_status = EmojiStatus(previous_status['document_id'])
+            emoji_status = EmojiStatus(
+                previous_status['document_id'], previous_status['until'])
 
             # Update to previous status
             result = await self.client(UpdateEmojiStatusRequest(
