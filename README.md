@@ -91,8 +91,10 @@ If you're exposing this script to the internet, I'd highly recommend setting an 
 
 There are hundreds of status emoji to choose from, but these are the ones I went with:
 
+- duck-blush: `5379732256644405206`
 - duck-laptop: `5444965061749644170`
 - duck-sleep: `5418028873705069979`
 - duck-car: `5233638613358486264`
 - duck-phone: `5201990176175299013`
 - duck-do-not-disturb: `5445350865776941647`
+- mashup-rock: `5454112830989025752`
