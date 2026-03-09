@@ -1,7 +1,6 @@
 from telethon import TelegramClient as TelethonClient
 from telethon.tl.functions.account import UpdateEmojiStatusRequest
 from telethon.tl.types import EmojiStatus, User
-from telethon.tl.functions.users import GetFullUserRequest
 from datetime import datetime
 
 
